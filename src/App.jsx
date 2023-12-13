@@ -1,6 +1,6 @@
 function App(){
 
-
+    console.log("Hello from component");
 
   return(
 
