@@ -1,17 +1,31 @@
+
+function Hello(props){
+  console.log(props);
+return(
+
+  <>
+  <p>Hello {props.userName} and your age is {props.age}</p>
+ 
+  </>
+  
+)
+
+
+
+}
+
+
+
 function App(){
-    const now =new Date()
-    console.log("Hello from component");
-
-    let a=10;
-
-    let b=15;
+   
 
   return(
-
     <div>
-      <h1>hello world is{now.toString()}</h1>
-      <p>{a} plus {b} is {a+b}</p>
+      <h1>Greatings</h1>
+      <Hello userName={"Karthi"} age={25}/>
+      <Hello userName={"KarthiKeyan"} age={26}/>
     </div>
+    
   )
 }
 
