@@ -2,10 +2,7 @@ import React from 'react';
 import Notes from './Components/Notes';
 function App ({notes}) {
   // 1way console.log(props.notes);
- function buttonclick(e){
-  e.preventDefault();
-  console.log("button clicked");
- }
+ 
  
   return (
     
@@ -28,7 +25,12 @@ function App ({notes}) {
       </ul>
       <form >
         <input></input>
-        <button onClick={buttonclick}>Save notes</button>
+        <button onClick={(e)=>{
+         
+  e.preventDefault();
+  console.log("button clicked");
+ 
+        }}>Save notes</button>
       </form>
     </div>
   )
