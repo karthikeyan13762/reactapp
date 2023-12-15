@@ -1,11 +1,11 @@
 import React from 'react'
 
 function Notes({notes}) {
- if(notes.important){
+
     return(
-        <li>{notes.important?notes.content +"✪" :notes.content + 'ⓧ'}</li>
+        <li>{notes.content}{notes.important && "✪"}</li>
     )
- }
+
 }
 
-export default Notes
+export default Notes;
