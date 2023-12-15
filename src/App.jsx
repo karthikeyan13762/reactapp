@@ -1,5 +1,6 @@
 import React from 'react';
 import Notes from './Components/Notes';
+import './style Folder/App.css'
 function App ({notes}) {
   // 1way console.log(props.notes);
  
