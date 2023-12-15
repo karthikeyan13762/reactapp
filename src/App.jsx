@@ -1,9 +1,14 @@
 import React from 'react';
 import Notes from './Components/Notes';
-function App({notes}) {
+function App ({notes}) {
   // 1way console.log(props.notes);
-  console.log(notes);
+ function buttonclick(e){
+  e.preventDefault();
+  console.log("button clicked");
+ }
+ 
   return (
+    
     <div>
       <h1>Notes</h1>
       <ul>
@@ -21,6 +26,10 @@ function App({notes}) {
           
        )}
       </ul>
+      <form >
+        <input></input>
+        <button onClick={buttonclick}>Save notes</button>
+      </form>
     </div>
   )
 }
