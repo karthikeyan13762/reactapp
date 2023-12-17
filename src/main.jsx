@@ -62,8 +62,8 @@ const notes1=[
 
 ReactDOM.createRoot(document.getElementById('root')).render(
  <>
-   <App notes={notes}/>
-    <App notes={notes1}/>
+   <App />
+  
  </>
  
  
