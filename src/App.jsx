@@ -1,27 +1,19 @@
-// import React from 'react' Not necessary from react17
-// function component
-// function App() {
-//   return (
-//     <div>Hello World</div>
-//   )
-// }
-// export default App
-import { Component } from "react";
+import React from 'react'
 
-
-
-
-class App extends Component{
-
-  render(){
-    return(
-
-      <div>
-        <h1>Hello World</h1>
-      </div>
-    )
-  }
-
+function Hello({name}){
+  console.log(name);
+  return(
+    <p>Hello {name}</p>
+  )
 }
 
-export default App;
+
+
+function App() {
+  return (
+    
+    <Hello name={"Karthikeyan"}/>
+  )
+}
+
+export default App
