@@ -1,22 +1,49 @@
 import React, { Component } from 'react'
 
-
-  class Hello extends Component{
-    render(){
-      console.log(this.props);
-      const {name}=this.props;
-      return(
-        <h1>Hello {name}</h1>
-      )
+class App extends Component {
+  constructor(props){
+  
+    super(props)
+    console.log(props);
+    this.state={
+      count:0,
     }
+   
+
+  }
+
+  increment= ()=>{
+   
+    this.setState(
+      {count:this.state.count+1}
+    )
+
+  }
+  decrement= ()=>{
+   
+    this.setState(
+      {count:this.state.count-1}
+    )
+
+  }
+  reset= ()=>{
+   
+    this.setState(
+      {count:0}
+    )
 
   }
 
 
- class App extends Component {
+
   render() {
-    return (
-      <Hello name={"Karthikeyan"}/>
+   return (
+      <div>
+        <p>Count:{this.state.count}</p>
+        <button onClick={this.increment}>Increment</button>
+        <button onClick={this.decrement}>decrement</button>
+        <button onClick={this.reset}>reset</button>
+      </div>
     )
   }
 }
