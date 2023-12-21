@@ -1,48 +1,46 @@
+
 import React, { Component } from 'react'
 
 class App extends Component {
+
   constructor(props){
-  
     super(props)
-    console.log(props);
     this.state={
-      count:0,
+      count:null,
+      isCart:true,
     }
-   
 
+  
   }
 
-  increment= ()=>{
-   
-    this.setState(
-      {count:this.state.count+1}
+  handleAddToCart=()=>{
+
+    this.setState({
+      count:this.state.count+1,
+      isCart: !this.state.isCart, // is cart is converted in to false 
+      
+    }
+    )
+  }
+  handleRemoveFromCart=()=>{
+    this.setState({
+      count:this.state.count-1,
+      isCart: !this.state.isCart,// is cart is converted in to true
+      
+    }
     )
 
   }
-  decrement= ()=>{
+  
    
-    this.setState(
-      {count:this.state.count-1}
-    )
-
-  }
-  reset= ()=>{
-   
-    this.setState(
-      {count:0}
-    )
-
-  }
-
-
-
   render() {
-   return (
+    return (
+
       <div>
-        <p>Count:{this.state.count}</p>
-        <button onClick={this.increment}>Increment</button>
-        <button onClick={this.decrement}>decrement</button>
-        <button onClick={this.reset}>reset</button>
+      <p>{this.state.count}</p>
+        {
+          this.state.isCart?(<button onClick={this.handleAddToCart}>Add to Cart</button>):(<button onClick={this.handleRemoveFromCart}>Remove from Cart</button>)
+        }
       </div>
     )
   }
