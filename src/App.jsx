@@ -1,34 +1,39 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function App() {
-
-  const[counter,setCounter]=useState(0);
-
-  // setTimeout(()=>{
-  //   setCounter(counter+1)
+  const[posts,setPosts]=useState(null)
     
-  // },1000)
+   
+  const fetchData= async()=>{
+    let response=await fetch('https://jsonplaceholder.typicode.com/posts')
+    console.log(response);
 
-  // console.log("Couter"+counter);
-  function handleAddClick(){
-    setCounter(counter+1)
+    let data= await response.json()
+    console.log(data);
+
+    setPosts(data)
+
   }
-  function handleMinusClick(){
-    setCounter(counter-1)
-  }
-
-  function handleRestClick(){
-    setCounter(0)
-  }
-
-
+  useEffect(()=>{
+    fetchData()
+  },[])
   return (
     <div>
-    <p>{counter}</p>
-    <button onClick={handleAddClick}>Add</button>
-    <button onClick={handleMinusClick}>Minus</button>
-    <button onClick={handleRestClick}>Reset</button>
+      <h1>API Data</h1>
+     {
+      posts?(<ul>
+        {
+          posts.map((post)=> <li key={post.id}>{post.title}</li>
+
+           
+          )
+        }
+      </ul>):(<p>Fetching Data</p>)
+     }
     </div>
+    
+
+    
   )
 }
 
