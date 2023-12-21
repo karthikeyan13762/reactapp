@@ -1,49 +1,20 @@
+import React, { useState } from 'react'
 
-import React, { Component } from 'react'
+function App() {
 
-class App extends Component {
+  const[counter,setCounter]=useState(0);
 
-  constructor(props){
-    super(props)
-    this.state={
-      count:null,
-      isCart:true,
-    }
+  setTimeout(()=>{
+    setCounter(counter+1)
+    
+  },1000)
 
-  
-  }
+  // console.log("Couter"+counter);
 
-  handleAddToCart=()=>{
 
-    this.setState({
-      count:this.state.count+1,
-      isCart: !this.state.isCart, // is cart is converted in to false 
-      
-    }
-    )
-  }
-  handleRemoveFromCart=()=>{
-    this.setState({
-      count:this.state.count-1,
-      isCart: !this.state.isCart,// is cart is converted in to true
-      
-    }
-    )
-
-  }
-  
-   
-  render() {
-    return (
-
-      <div>
-      <p>{this.state.count}</p>
-        {
-          this.state.isCart?(<button onClick={this.handleAddToCart}>Add to Cart</button>):(<button onClick={this.handleRemoveFromCart}>Remove from Cart</button>)
-        }
-      </div>
-    )
-  }
+  return (
+    <div>App</div>
+  )
 }
 
 export default App
