@@ -1,41 +1,22 @@
-// props drilling
+// passing data from parent to child
 
 import React from 'react'
-
-function Grandchild({data}){
-
-  return(
-
-    <div>
-      <h2>
-      Grand Componet----------{ data}
-      </h2>
-    </div>
-  )
-}
 function Child({data}){
-
   return(
-
     <div>
-      <h2>
-        Child Componet
-
-      </h2>
-      <Grandchild data={data}/>
+      Child component----------{data}
     </div>
   )
 }
-
 function App() {
-  const data="Data fromm Parent"
-  return (
 
-    <div>
- 
-      <h1>Parent Component</h1>
-      <Child data={data}/>
-    </div>
+  let data="data from parent "
+  return (
+    <>
+    <div>App</div>
+    <Child data={data}/>
+    </>
+    
   )
 }
 
