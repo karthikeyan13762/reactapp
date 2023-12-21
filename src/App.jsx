@@ -1,20 +1,29 @@
-// passing data from parent to child
+// passing data from child to parent
 
-import React from 'react'
-function Child({data}){
+import React, { useState } from 'react'
+function Child({getData}){
+  let child="Data from child"
+ function sendData(){
+  getData(child)
+ }
   return(
-    <div>
-      Child component----------{data}
-    </div>
+    <>
+      <button onClick={sendData}>sendData</button>
+    </>
   )
 }
 function App() {
 
-  let data="data from parent "
+const[datafomchild,setDatafomchild]=useState(null)
+
+function getData(message){
+  setDatafomchild(message)
+}
+
   return (
     <>
-    <div>App</div>
-    <Child data={data}/>
+    <div>Parent to child--------- {datafomchild}</div>
+    <Child getData={getData}/>
     </>
     
   )
