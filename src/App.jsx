@@ -1,39 +1,22 @@
 import React, { useEffect, useState } from 'react'
 
 function App() {
-  const[posts,setPosts]=useState(null)
-    
-   
-  const fetchData= async()=>{
-    let response=await fetch('https://jsonplaceholder.typicode.com/posts')
-    console.log(response);
+const[count,setCount]=useState(0)
 
-    let data= await response.json()
-    console.log(data);
-
-    setPosts(data)
-
-  }
   useEffect(()=>{
-    fetchData()
-  },[])
+    document.title=`count ${count}`
+  },[count])
+
+  function changeCout(){
+
+    setCount(count+1)
+}
+
   return (
     <div>
-      <h1>API Data</h1>
-     {
-      posts?(<ul>
-        {
-          posts.map((post)=> <li key={post.id}>{post.title}</li>
-
-           
-          )
-        }
-      </ul>):(<p>Fetching Data</p>)
-     }
+    <h1>Document Title change</h1>
+    <button onClick={changeCout}>changeCount</button>
     </div>
-    
-
-    
   )
 }
 
