@@ -1,21 +1,40 @@
-import React, { useEffect, useState } from 'react'
+// props drilling
 
-function App() {
-const[count,setCount]=useState(0)
+import React from 'react'
 
-  useEffect(()=>{
-    document.title=`count ${count}`
-  },[count])
+function Grandchild({data}){
 
-  function changeCout(){
+  return(
 
-    setCount(count+1)
+    <div>
+      <h2>
+      Grand Componet----------{ data}
+      </h2>
+    </div>
+  )
+}
+function Child({data}){
+
+  return(
+
+    <div>
+      <h2>
+        Child Componet
+
+      </h2>
+      <Grandchild data={data}/>
+    </div>
+  )
 }
 
+function App() {
+  const data="Data fromm Parent"
   return (
+
     <div>
-    <h1>Document Title change</h1>
-    <button onClick={changeCout}>changeCount</button>
+ 
+      <h1>Parent Component</h1>
+      <Child data={data}/>
     </div>
   )
 }
