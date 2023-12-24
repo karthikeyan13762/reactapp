@@ -1,31 +1,29 @@
-// passing data from child to parent
+import React from 'react'
+import {Link, Route, BrowserRouter as Router, Routes} from 'react-router-dom';
+import Home from './Components/Home';
+import Notes from './Components/Notes';
+import Users from './Components/Users';
 
-import React, { useState } from 'react'
-function Child({getData}){
-  let child="Data from child"
- function sendData(){
-  getData(child)
- }
-  return(
-    <>
-      <button onClick={sendData}>sendData</button>
-    </>
-  )
-}
 function App() {
-
-const[datafomchild,setDatafomchild]=useState(null)
-
-function getData(message){
-  setDatafomchild(message)
-}
-
+  const Padding={
+    padding:5,
+    margin:5,
+    background:"gray"
+  }
   return (
-    <>
-    <div>Parent to child--------- {datafomchild}</div>
-    <Child getData={getData}/>
-    </>
-    
+<Router>
+  <div>
+    <Link style={Padding} to={'/'}>Home</Link>
+    <Link style={Padding} to={'/notes'}>Notes</Link>
+    <Link style={Padding} to={'/users'}>Users</Link>
+  </div>
+  <Routes>
+    <Route path='/' element={<Home/>} />
+    <Route path='/notes' element={<Notes/>} />
+    <Route path='/users' element={<Users/>} />
+ </Routes>
+</Router>
+
   )
 }
 
