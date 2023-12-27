@@ -1,16 +1,29 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
 import {contextMessage} from '../App'
 import GrandChild from './GrandChild';
 
 function Child() {
-let {data,coins}=useContext(contextMessage)
+
   return (
-    <div>
+
+<contextMessage.Consumer>
+{
+(value)=>{
+    {console.log (value.data)}
+    return( <div>
     <h1>Child Component</h1>
-    <p>Message from parent componet <b>{data}</b></p>
+    <p>Message from parent componet <b>{value.data}</b></p>
     <GrandChild/>
-    </div>
+    </div>)
+}
+
+}
+
+
+</contextMessage.Consumer>
+
+   
   )
 }
 

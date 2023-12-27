@@ -1,5 +1,6 @@
 import React, { createContext, useState } from 'react'
-import Child from './Components/child'
+import Child from './Components/child';
+
 
 
 const contextMessage=createContext();
@@ -13,7 +14,7 @@ function App() {
     <div>
       <h1>Parent Component</h1>
       <contextMessage.Provider value={{data,coins}}>
-      <Child />
+   <Child/>
       </contextMessage.Provider>
        
     </div>
